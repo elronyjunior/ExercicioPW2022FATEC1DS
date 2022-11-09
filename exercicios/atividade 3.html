@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function mudarCor(novaCor,cor2) {
+    var elemento = document.getElementById("para1");
+    elemento.style.color = novaCor;
+  }
+  </script>
+  <style>
+    .quad{
+      border:solid;
+      background-color: aqua;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="quad">
+    <p id="para1">Texto,que muda de cor,tem varias formas de se trabalhar com o DOM(Document Object Model) mudando os elementos <br> como cor tamanho,texto etc..</p>
+  </div>
+  <button onclick="mudarCor('blue');">Azul</button>
+  <button onclick="mudarCor('red');">Vermelho</button>
+  <button onclick="mudarCor('green');">Verde</button>
+  <button onclick="mudarCor('purple');">Roxo</button>
+</body>
+</html>
