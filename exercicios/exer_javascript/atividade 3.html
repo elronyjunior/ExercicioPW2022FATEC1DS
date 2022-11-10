@@ -1,31 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
-    function mudarCor(novaCor,cor2) {
-    var elemento = document.getElementById("para1");
-    elemento.style.color = novaCor;
-  }
-  </script>
-  <style>
-    .quad{
-      border:solid;
-      background-color: aqua;
-      width: 80%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <div class="quad">
-    <p id="para1">Texto,que muda de cor,tem varias formas de se trabalhar com o DOM(Document Object Model) mudando os elementos <br> como cor tamanho,texto etc..</p>
-  </div>
-  <button onclick="mudarCor('blue');">Azul</button>
-  <button onclick="mudarCor('red');">Vermelho</button>
-  <button onclick="mudarCor('green');">Verde</button>
-  <button onclick="mudarCor('purple');">Roxo</button>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3 </title>
+
+    <script>
+
+        function mudarCor(novaCor) //EXERCÍCIO 3 - document.getElementById
+        {
+            var elemento = document.getElementById("para1");
+            elemento.style.color = novaCor;
+        }
+
+        //---------------------------------------------------------------------
+
+        function div1() //EXERCICIO 3 - getElementsByTagName
+        {
+            var div1 = document.getElementById('div1');
+            var div1Paras = div1.getElementsByTagName('p');
+            var num = div1Paras.length;
+            alert('Esta div contem ' + num + ' Paragrafos');
+        }
+
+        //----------------------------------------------------------------------
+
+        // EXERCICIO 3 - document.getElementByClassName()
+
+        function lista()
+        {
+            var lista = document.getElementsByClassName("exemplo")[0];
+            lista.getElementsByClassName("crianca")[0].innerHTML = "pingado";
+        }
+
+        //----------------------------------------------------------------------
+
+        //EXERCÍCIO 3 - document.querySelector()
+
+        function MinhaFuncao()
+        {
+            document.querySelector("h2").style.backgroundColor = "red";
+        }
+
+        //----------------------------------------------------------------------
+
+        //EXERCÍCIO 3 - document.querySelectorAll()
+
+        function MinhaFuncao2()
+        {
+            var x = document.querySelectorAll("h2, div, span");
+            var i;
+            for (i = 0; i < x.length; i++)
+            {
+                x[i].style.backgroundColor = "red";
+            }
+        }
+
+    </script>
+
+</head>
+
+    <style>
+
+        body
+        {
+
+            background-color: rgb(206, 242, 241);
+
+        }
+
+
+        .botao
+        {   
+            padding: 15px 15px;            
+            width: 150px;
+            position: relative;
+            left: 70px;
+            margin-top: 30px;
+        }
+
+    
+    </style>    
+
+    <body>
+
+        <p id="para1"> EXEMPLO document.getElementById(): </p>
+
+             <button class="botao" onclick="mudarCor('blue');">Azul</button>
+
+             <button class="botao" onclick="mudarCor('red');">Vermelho</button>
+
+        <hr/>
+
+        <p>* Element.getElementsByTagName(): Apresenta Sintaxe | getElementsByTagName(tagName)| tagName é o nome qualificado <br> a ser procurado. A string especial "*" representa todos os elementos. Para compatibilidade com XHTML, deve-se usar letras minúsculas.</p>
+
+        <p>EXEMPLO getElementsByTagName:</p>
+
+        <div id="div1">
+            <p>paragrafo</p>
+            <p>paragrafo</p>
+            <p>paragrafo</p>
+            <p>Paragrafo.este exemplo mostrara uma caixa de alerta e quantos paragrafos a div tem</p>
+            <button class="botao" onclick="div1();">Parágrafos</button><br />
+        </div>
+
+        <hr/>
+
+        <p>*  document.getElementByClassName(): Apresenta Sintaxe | var elementos = document.getElementByClassName("nome-da-classe"); | <br> Ele descreve uma maneira de definir conjuntos de elementos relacionados do documento: <br> todos elementos que possuem o mesmo identificador em seu atributo class fazem parte do mesmo conjunto</p>
+
+        <ul class="exemplo">
+
+            <li class="crianca">Café</li>
+            <li class="crianca">leite</li>
+
+        </ul>
+          
+        <button class="botao" onclick="lista();">Troca Lista</button>        
+
+        <hr/>
+
+        <p>*  document.querySelector(): serve para selecionar um elemnto CSS só. </p>
+        
+        <h2>MUDA A COR DO FUNDO!</h2>
+        <button class="botao" onclick="MinhaFuncao();">Mudar Cor</button>
+
+        <hr/>
+
+        <p>*  document.querySelectorAll(); serve para encontrar elementos HTML que corresponde a um seletor CSS, especificado por id, class, etc. </p>
+
+        <h1>Elemento H1.</h1>
+
+        <h2>Elemento H2.</h2>
+
+        <div class="div">É uma DIV.</div>
+
+        <p>PARAGRAFO.</p>
+
+        <p>PARAGRAFO <span style="color:brown;">COM COR</span> EM VERMELHO.</p>
+
+
+        <button class="botao" onclick="MinhaFuncao2()">Mudar Cores</button>    
+
+    </body>
+    </html>
 </body>
 </html>
