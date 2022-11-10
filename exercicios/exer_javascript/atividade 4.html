@@ -1,79 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 4</title>
-    <style>
-        
-    </style>
-</head>
-<body>
-    <h1>Eventos em JavaScript</h1>
-    <!--Exemplos de ONCLICK-->
-    <p onclick="mudetexto(this)">Clique no Texto!</p>
-    <button>Mude a cor</button>
-
-    <!--Exemplos de ONFOCUS-->
-    Nome: <input type="text" onfocus="emFoco(this)">
-
-    <!--Exemplo de ONMOUSEOVER e ONMOUSEOUT-->
-    <div onmouseover="mOver(this)" onmouseout="mOut(this)" 
-    style= "background: linear-gradient(45deg, #ed1641, #d42b8f);width:140px;height:20px;padding:40px; margin: 15px;">
-    PASSE O MOUSE</div>
-
-    <!--Exemplo de ONMOUSEDOWN e ONMOUSEUPT-->
-    <div onmousedown="mDown(this)" onmouseup="mUp(this)"
-    style="background-color:#d238e3;width:90px;height:20px;padding:40px; margin: 20px;">
-    CLIQUE</div>
-
-    <!--Exemplo de ONCHANGE-->
-    Digite algo: <input type="text" id="meuInput" onchange="minhaFuncao()" >
+    <title>Exercício 4 </title>
 
     <script>
-        function mudetexto(id) {
-          id.innerHTML = "Ooops!";
+
+         //EXERCÍCIO 4
+         function mOver(obj)
+        {
+            obj.innerHTML="Tira isso da minha cara"
         }
 
-        var btn = document.querySelector('button');
-
-        function random(number) {
-        return Math.floor(Math.random()*(number+1));
+        function mOut(obj)
+        {
+            obj.innerHTML="Passe o mouse em mim"
         }
 
-        btn.onclick = function() {
-        var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-        document.body.style.backgroundColor = rndCol;
+        function checkCookies()
+        {
+            if (navigator.cookieEnabled==true)
+	        {
+	            alert("Cookies são permitidos")
+	        }
+            else
+	        {
+	            alert("Cookies não são permitidos")
+	        }
         }
 
-        function emFoco(x) {
-        x.style.background = "yellow";
+        function emFoco(x)
+        {
+            x.style.background = "orange";
         }
 
-        function mOver(obj) {
-        obj.innerHTML = "OBRIGADA!!"
-        }
-
-        function mOut(obj) {
-        obj.innerHTML = "PASSE O MOUSE"
-        }
-
-        function mDown(obj) {
-        obj.style.backgroundColor = "#1ec5e5";
-        obj.innerHTML = "SOLTE-ME";
-        }
-
-        function mUp(obj) {
-        obj.style.backgroundColor="#D94A38";
-        obj.innerHTML="OBRIGADA!";
-        }
-
-        function minhaFuncao() {
-        var minhaInput=document.getElementById("meuInput");
-        minhaInput.value=(minhaInput.value).toUpperCase();
+        function Mudar()
+        {
+            var x=document.getElementById("fname");
+            x.value=x.value.toUpperCase();
         }
 
     </script>
-</body>
-</html>
+    
+</head>
+
+    <style>
+
+        body
+        {
+
+            background-color: rgb(197, 246, 242);
+
+        }
+
+       
+        input
+        {
+            
+            margin-left: 150px;
+            font-size: 1.5em;
+        }
+
+        .eventos1
+        {
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+
+    
+    </style>    
+
+    <body onload="checkCookies()">
+
+       
+        <div class="eventos1" onmouseover="mOver(this)" onmouseout="mOut(this)">Passe o mouse em mim</div>
+
+        <hr/>
+
+        <input type="text" onfocus="emFoco(this)">
+
+        <hr/>
+
+        <p>Converterei seu texto para uppercase </p>
+        
+        <input type="text" id="fname" onchange="Mudar()">
+
+    </body>
+    </html>
